@@ -8,9 +8,9 @@ IKNmapBOT_token <- rtweet::create_token(
 )
 
 # Generate random coordinates within specific limits
-lon <- round(runif(1, -0.489, 0.236), 4)
+lon <- round(runif(1, -6.350871, -6.101472), 4)
 lon <- format(lon, scientific = FALSE)
-lat <- round(runif(1, 51.28, 51.686), 4)
+lat <- round(runif(1, 106.688063, 106.968928), 4)
 
 # Build URL and fetch image from Mapbox API
 img_url <- paste0(
