@@ -25,9 +25,10 @@ temp_file <- tempfile()
 download.file(img_url, temp_file)
 
 # Build the status message (text and URL)
+sep <- "\n"
 latlon_details <- paste0(
-  lat, ", ", lon, "\n",
-  "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
+  "📍 ", lat, ", ", lon, sep, sep,
+  "🗺️ ", "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
 )
 
 # Post the image to Twitter
