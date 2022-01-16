@@ -1,6 +1,6 @@
 # Create Twitter token
 IKNmapBOT_token <- rtweet::create_token(
-  app = "Sedotan",
+  app = "IKNmap",
   consumer_key =    Sys.getenv("TWITTER_CONSUMER_API_KEY"),
   consumer_secret = Sys.getenv("TWITTER_CONSUMER_API_SECRET"),
   access_token =    Sys.getenv("TWITTER_ACCESS_TOKEN"),
