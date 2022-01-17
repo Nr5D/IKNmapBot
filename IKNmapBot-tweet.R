@@ -30,7 +30,6 @@ address = jsonlite::fromJSON(location, flatten = TRUE)
 text = address$data$display_name
 
 # Build the Twitter status message (text and URL)
-# 
 if (is.null(text)) { message <- paste0(
   "📍 ¿Coba Tebak? \n",
   "🌐 ",lat, ", ", lon, "\n",
