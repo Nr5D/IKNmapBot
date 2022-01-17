@@ -24,16 +24,26 @@ img_url <- paste0(
 temp_file <- tempfile()
 download.file(img_url, temp_file)
 
-# Build the status message (text and URL)
-sep <- "\n"
-latlon_details <- paste0(
-  "📍 ", lat, ", ", lon, sep, sep,
-  "🗺️ ", "https://www.openstreetmap.org/#map=17/", lat, "/", lon, "/"
-)
+# Geocoding Point (from @esmapbot)
+location = paste0("https://api.mymappi.com/v2/geocoding/reverse?apikey=",Sys.getenv("MYMAPPI_PUBLIC_TOKEN"),paste0("&lat=",lat,"&lon=",lon))
+address = jsonlite::fromJSON(location, flatten = TRUE)
+text = address$data$display_name
+
+# Build the Twitter status message (text and URL)
+# 
+if (is.null(text)) { message <- paste0(
+  "📍 ¿Coba Tebak? \n",
+  "🌐 ",lat, ", ", lon, "\n",
+  "🗺️ ","https://www.google.com/maps/@", lat, ",", lon, ",16z"
+)} else { message <- paste0(
+  "📍 ", text, "\n",
+  "🌐 ",lat, ", ", lon, "\n",
+  "🗺️ ","https://www.google.com/maps/@", lat, ",", lon, ",16z"
+)}
 
 # Post the image to Twitter
 rtweet::post_tweet(
-  status = latlon_details,
+  status = message,
   media = temp_file,
   token = IKNmapBOT_token
 )
