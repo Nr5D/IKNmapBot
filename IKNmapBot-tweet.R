@@ -31,11 +31,11 @@ text = address$data$display_name
 
 # Build the Twitter status message (text and URL)
 if (is.null(text)) { message <- paste0(
-  "📍 ¿Coba Tebak? \n",
+  "📍 ¿Coba Tebak? \n", "\n",
   "🌐 ",lat, ", ", lon, "\n",
   "🗺️ ","https://www.google.com/maps/@", lat, ",", lon, ",16z"
 )} else { message <- paste0(
-  "📍 ", text, "\n",
+  "📍 ", text, "\n", "\n",
   "🌐 ",lat, ", ", lon, "\n",
   "🗺️ ","https://www.google.com/maps/@", lat, ",", lon, ",16z"
 )}
