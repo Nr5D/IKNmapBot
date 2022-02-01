@@ -1,8 +1,10 @@
 name: IKNmapbot
 
 on:
-  schedule:
-    - cron: '0,30 * * * *'  # once every 30 minutes
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      - main
 
 jobs:
   IKN-post:
